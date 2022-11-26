@@ -1,0 +1,19 @@
+Total recorded luminosity for these runs is:  115.22972469709957 /pb
+Total recorded luminosity loss for these runs is:  30.633325606595353 /pb
+{'ecal-es': 6.45034082e-07, 'csc-csc': 0.21298056320730102, 'muon-muon': 0.216699626205353, 'hcal-hcal': 0.248045924611942, 'l1t-l1tmu': 0.32595870699392804, 'l1t-l1tcalo': 0.7996952682284572, 'tracker-strip': 4.031337374340808, 'tracker-pixel': 4.10541339972935, 'tracker-track': 4.360271265960413, 'jetmet-jetmet': 13.435245444433402, 'egamma-egamma': 26.81664532222817}
+{'ho_ready': 0.008930610159383, 'bpix_ready': 3.8026886147283703, 'tecm_ready': 3.83536884551921, 'tecp_ready': 3.844054259388885, 'tob_ready': 3.846975731584604, 'tibtid_ready': 3.847211676063874, 'fpix_ready': 3.852250259876393}
+{'ECAL': 6.45034082e-07, 'Muon': 0.216699626205353, 'HCAL': 0.25697653477132504, 'L1T': 0.8034143312265091, 'Tracker': 4.43626805235122, 'JetMET': 13.435245444433402, 'EGamma': 26.81664532222817}
+{'HCAL EGamma ': 0.0015396697303529999, 'HCAL Muon L1T JetMET EGamma ': 0.003099473213684, 'Tracker EGamma ': 0.026382157886343002, 'Tracker L1T JetMET ': 0.030059553566156, 'HCAL ': 0.05041826623943899, 'L1T ': 0.084978469028831, 'L1T EGamma ': 0.15969376208097327, 'HCAL JetMET EGamma ': 0.20180748190303902, 'L1T JetMET EGamma ': 0.20309061330930095, 'Muon EGamma ': 0.21298056320730102, 'Tracker L1T JetMET EGamma ': 0.32160033459393983, 'Tracker JetMET EGamma ': 0.4067288300887082, 'Tracker ': 1.6358671879316335, 'Tracker JetMET ': 2.0153568076011044, 'JetMET EGamma ': 10.252770471654195, 'EGamma ': 15.02605919409261}
+{'HCAL ': 0.05041826623943899, 'L1T ': 0.084978469028831, 'Tracker ': 1.6358671879316335, 'Mixed': 13.83600248930281, 'EGamma ': 15.02605919409261}
+{'Tracker ': 0.05340155388089602, 'Mixed': 0.4516650482872783, 'EGamma ': 0.49051348152867547}
+{'Tracker L1T JetMET EGamma ': 1.0498381361659908, 'Tracker JetMET EGamma ': 1.3277331861126416, 'Tracker ': 5.340155388089602, 'Tracker JetMET ': 6.578968387184179, 'JetMET EGamma ': 33.46933533539295, 'EGamma ': 49.05134815286755}
+{'bpix_ready': 3.8026886147283703, 'tecm_ready': 3.83536884551921, 'tecp_ready': 3.844054259388885, 'tob_ready': 3.846975731584604, 'tibtid_ready': 3.847211676063874, 'fpix_ready': 3.852250259876393, 'tracker-strip': 4.031337374340808, 'tracker-pixel': 4.10541339972935, 'tracker-track': 4.360271265960413}
+{'ecal-ecal': 0.0, 'ecal-es': 6.45034082e-07}
+{'hbhea_ready': 0.0, 'hbheb_ready': 0.0, 'hbhec_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.008930610159383, 'hcal-hcal': 0.248045924611942}
+{'dt-dt': 0.0, 'csc-csc': 0.21298056320730102, 'muon-muon': 0.216699626205353}
+{'l1t-l1tmu': 0.32595870699392804, 'l1t-l1tcalo': 0.7996952682284572}
+{'hlt-hlt': 0.0}
+{'jetmet-jetmet': 13.435245444433402}
+{'egamma-egamma': 26.81664532222817}
+defaultdict(<class 'str'>, {'Mixed': 'brown', 'Tracker ': 'purple', 'ECAL ': 'red', 'HCAL ': 'green', 'Muon ': 'orange', 'L1T ': 'blue', 'HLT ': 'pink', 'JetMET ': 'gray', 'EGamma ': 'olive'})
+['Tracker ', 'Mixed', 'EGamma ']
