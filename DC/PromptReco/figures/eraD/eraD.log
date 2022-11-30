@@ -1,0 +1,46 @@
+Python 3.6.12
+Using base prefix '/opt/rh/rh-python36/root/usr'
+New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
+Not overwriting existing python script /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python (you must use /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3)
+Installing setuptools, pip, wheel...done.
+Running virtualenv with interpreter /opt/rh/rh-python36/root/usr/bin/python3
+/afs/cern.ch/user/s/syu/scripts/runregistry
+Requirement already satisfied: runregistry in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
+Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
+Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+You are using pip version 9.0.1, however version 22.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
+You are using pip version 9.0.1, however version 22.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Total recorded luminosity for these runs is:  3322.8584461441974 /pb
+Total recorded luminosity loss for these runs is:  418.21586977616414 /pb
+{'l1t-l1tmu': 2.864517909840221, 'csc-csc': 5.052651235955426, 'tracker-strip': 5.375811218784927, 'jetmet-jetmet': 6.2611721207461795, 'tracker-pixel': 12.472719602334674, 'tracker-track': 12.601373586878514, 'ecal-es': 17.31130611499208, 'hlt-hlt': 17.92292257827412, 'muon-muon': 23.256442262660464, 'egamma-egamma': 34.27833309159903, 'l1t-l1tcalo': 100.08428740343784, 'hcal-hcal': 313.45715580948615}
+{'ho_ready': 2.6183516178218817, 'tibtid_ready': 5.349680490495272, 'tob_ready': 5.622340868737347, 'tecp_ready': 5.744643223115858, 'bpix_ready': 5.810187399371614, 'tecm_ready': 5.923854814127572, 'fpix_ready': 7.1772452608372, 'hbhea_ready': 20.49647359643623, 'hbhec_ready': 33.7948983041917, 'hbheb_ready': 243.49101446609043}
+{'JetMET': 6.2611721207461795, 'Tracker': 14.010110307751267, 'ECAL': 17.31130611499208, 'HLT': 17.92292257827412, 'Muon': 23.256442262660464, 'EGamma': 34.27833309159903, 'L1T': 100.17073313728551, 'HCAL': 313.7121357077586}
+{'Muon L1T ': 0.012263881283909999, 'Muon L1T JetMET EGamma ': 0.07418185256376901, 'EGamma ': 0.10246836869381899, 'ECAL L1T ': 0.10673483568605799, 'Tracker L1T ': 0.30632906886481004, 'Tracker Muon L1T JetMET EGamma ': 0.448735620485607, 'L1T EGamma ': 1.932709897146205, 'HCAL L1T HLT ': 4.89554899577213, 'HCAL Muon EGamma ': 5.052651235955426, 'HCAL L1T JetMET EGamma ': 5.738254647696803, 'HCAL EGamma ': 6.5718720049746, 'L1T HLT ': 13.02737358250199, 'Tracker ': 13.255045618400851, 'HCAL L1T EGamma ': 14.357459464082787, 'ECAL ': 17.204571279306027, 'Muon ': 17.668609672371748, 'HCAL L1T ': 18.906430900100702, 'L1T ': 40.36471039110072, 'HCAL ': 258.1899184591764}
+{'EGamma ': 0.10246836869381899, 'Tracker ': 13.255045618400851, 'ECAL ': 17.204571279306027, 'Muon ': 17.668609672371748, 'L1T ': 40.36471039110072, 'Mixed': 71.43054598711483, 'HCAL ': 258.1899184591764}
+{'Tracker ': 0.031694267425803724, 'ECAL ': 0.04113801632758267, 'Muon ': 0.042247583004988, 'L1T ': 0.09651644834210754, 'Mixed': 0.17079826747212057, 'HCAL ': 0.6173604043226858}
+{'HCAL L1T HLT ': 1.1705794422369258, 'HCAL Muon EGamma ': 1.2081443104155005, 'HCAL L1T JetMET EGamma ': 1.372079603475595, 'HCAL EGamma ': 1.5714066538154021, 'L1T HLT ': 3.1149878624822276, 'Tracker ': 3.169426742580373, 'HCAL L1T EGamma ': 3.4330259805222436, 'ECAL ': 4.113801632758267, 'Muon ': 4.2247583004988, 'HCAL L1T ': 4.520734928165143, 'L1T ': 9.651644834210755, 'HCAL ': 61.73604043226858}
+{'tibtid_ready': 5.349680490495272, 'tracker-strip': 5.375811218784927, 'tob_ready': 5.622340868737347, 'tecp_ready': 5.744643223115858, 'bpix_ready': 5.810187399371614, 'tecm_ready': 5.923854814127572, 'fpix_ready': 7.1772452608372, 'tracker-pixel': 12.472719602334674, 'tracker-track': 12.601373586878514}
+{'ecal-ecal': 0.0, 'ecal-es': 17.31130611499208}
+{'hf_ready': 0.0, 'ho_ready': 2.6183516178218817, 'hbhea_ready': 20.49647359643623, 'hbhec_ready': 33.7948983041917, 'hbheb_ready': 243.49101446609043, 'hcal-hcal': 313.45715580948615}
+{'dt-dt': 0.0, 'csc-csc': 5.052651235955426, 'muon-muon': 23.256442262660464}
+{'l1t-l1tmu': 2.864517909840221, 'l1t-l1tcalo': 100.08428740343784}
+{'hlt-hlt': 17.92292257827412}
+{'jetmet-jetmet': 6.2611721207461795}
+{'egamma-egamma': 34.27833309159903}
+defaultdict(<class 'str'>, {'Mixed': 'brown', 'Tracker ': 'purple', 'ECAL ': 'red', 'HCAL ': 'green', 'Muon ': 'orange', 'L1T ': 'blue', 'HLT ': 'pink', 'JetMET ': 'gray', 'EGamma ': 'olive'})
+['Tracker ', 'ECAL ', 'Muon ', 'L1T ', 'Mixed', 'HCAL ']
