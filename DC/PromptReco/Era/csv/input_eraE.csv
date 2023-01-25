@@ -1,4 +1,4 @@
-#Data tag : 22v1 , Norm tag: None
+#Data tag : 23v1 , Norm tag: None
 #run:fill,ls,time,beamstatus,E(GeV),delivered(/ub),recorded(/ub),avgpu,source
 359356:8184,116:116,09/27/22 00:27:37,STABLE BEAMS,6800,73.096076104,65.432960529,22.3,BCM1F
 359356:8184,117:117,09/27/22 00:28:00,STABLE BEAMS,6800,73.133634431,0.874375084,22.3,BCM1F

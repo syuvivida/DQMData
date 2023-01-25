@@ -1,3 +1,24 @@
+
+
+The period to process lumiloss plots is eraE
+We will run step plot
+The output csv/JSON files are in the directory Era
+
+
+
+
+Steps include: all        --> running all steps (inputcsv, json, outputcsv, plot, dump)
+               inputcsv   --> producing csv files for the input runs using brilcalc
+               json       --> producing muon and golden JSON files
+                              Note, only golden JSON files are required for the next step
+                              If you lose connection to the DB after producing golden JSON file, you can move on to the next step
+               outputcsv  --> producing run registry info for the input runs
+               plot       --> make luminosity loss plots
+               dump       --> dump the major lumi loss into text files
+
+
+The directory /afs/cern.ch/user/s/syu/scripts/runregistry/Era exists.
+The run list is Era/eraE_runs.txt
 Python 3.6.12
 Using base prefix '/opt/rh/rh-python36/root/usr'
 New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
@@ -6,25 +27,33 @@ Installing setuptools, pip, wheel...done.
 Running virtualenv with interpreter /opt/rh/rh-python36/root/usr/bin/python3
 /afs/cern.ch/user/s/syu/scripts/runregistry
 Requirement already satisfied: runregistry in ./venv/lib/python3.6/site-packages
-Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
 Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
-Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
-Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
 Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
 Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
 Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
+figures_eraE directory exists.
+moving the original figures_eraE to tmp
+creating a new directory figures_eraE
+
+
+Now we are going to produce lumiloss plots in eraE
+using the input from Era/output_eraE.csv
+['make_dc_plot.py', '-c', 'Era/output_eraE.csv', '-p', 'eraE', '-d', 'figures_eraE']
 Total recorded luminosity for these runs is:  6064.2416687773875 /pb
 Total recorded luminosity loss for these runs is:  392.6040740717767 /pb
 {'muon-muon': 0.7118199697665639, 'l1t-l1tmu': 1.939054110457527, 'l1t-l1tcalo': 3.6085983165481985, 'hlt-hlt': 6.345113355214967, 'hcal-hcal': 37.148686717761855, 'tracker-pixel': 40.44404268718731, 'ecal-ecal': 99.82957285677516, 'egamma-egamma': 100.9047986875885, 'tracker-strip': 111.55093569587308, 'tracker-track': 113.30854810538415, 'jetmet-jetmet': 222.87797411258526}
@@ -44,3 +73,5 @@ Total recorded luminosity loss for these runs is:  392.6040740717767 /pb
 {'egamma-egamma': 100.9047986875885}
 defaultdict(<class 'str'>, {'Mixed': 'brown', 'Tracker ': 'purple', 'ECAL ': 'red', 'HCAL ': 'green', 'Muon ': 'orange', 'L1T ': 'blue', 'HLT ': 'pink', 'JetMET ': 'gray', 'EGamma ': 'olive'})
 ['HLT ', 'HCAL ', 'JetMET ', 'Tracker ', 'Mixed']
+The png files are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/figures_eraE
+The script produce_lumilossplots.sh has produced luminosity loss plots and will stop now
