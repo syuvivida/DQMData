@@ -1,27 +1,27 @@
 Python 3.6.12
 Using base prefix '/opt/rh/rh-python36/root/usr'
-New python executable in /afs/cern.ch/work/s/syu/DQMSpace/runregistry_scripts/lumiloss/venv/bin/python3
-Not overwriting existing python script /afs/cern.ch/work/s/syu/DQMSpace/runregistry_scripts/lumiloss/venv/bin/python (you must use /afs/cern.ch/work/s/syu/DQMSpace/runregistry_scripts/lumiloss/venv/bin/python3)
+New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
+Not overwriting existing python script /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python (you must use /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3)
 Installing setuptools, pip, wheel...done.
 Running virtualenv with interpreter /opt/rh/rh-python36/root/usr/bin/python3
-/afs/cern.ch/work/s/syu/DQMSpace/runregistry_scripts/lumiloss
+/afs/cern.ch/user/s/syu/scripts/runregistry
 Requirement already satisfied: runregistry in ./venv/lib/python3.6/site-packages
 Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
 Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
 Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
-Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
 Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
@@ -29,25 +29,25 @@ creating a new directory figures_calls7to23
 
 
 Now we are going to produce lumiloss plots in calls7to23
-using the input from /afs/cern.ch/work/s/syu/output_call7to23_update.csv
-['make_dc_plot.py', '-c', '/afs/cern.ch/work/s/syu/output_call7to23_update.csv', '-p', 'calls7to23', '-d', 'figures_calls7to23']
-Total recorded luminosity for these runs is:  37412.258876987325 /pb
-Total recorded luminosity loss for these runs is:  3113.080240164032 /pb
-{'ecal-es': 32.66432940750585, 'csc-csc': 84.556476123609, 'muon-muon': 134.47953900154636, 'ecal-ecal': 141.92334118844835, 'hlt-hlt': 175.24757185586313, 'tracker-pixel': 182.3360029417513, 'l1t-l1tmu': 205.34951124175194, 'tracker-strip': 211.08967684138298, 'tracker-track': 272.67860728905987, 'egamma-egamma': 698.9132181412353, 'l1t-l1tcalo': 926.8317992397266, 'hcal-hcal': 1497.8137869506177, 'jetmet-jetmet': 1728.556810423007}
-{'hf_ready': 0.0, 'ho_ready': 19.88677591237359, 'bpix_ready': 112.04865150625362, 'fpix_ready': 124.33551006028702, 'tibtid_ready': 139.50434496245134, 'tecm_ready': 139.7565510790086, 'tecp_ready': 166.54398766296453, 'tob_ready': 193.055797476052, 'hbheb_ready': 332.9118647009908, 'hbhec_ready': 467.618215563996, 'hbhea_ready': 493.4539855693986}
-{'Muon': 134.47953900154636, 'ECAL': 159.2346479484746, 'HLT': 175.24757185586313, 'Tracker': 314.06903404290733, 'EGamma': 698.9132181412353, 'L1T': 944.3603685189856, 'HCAL': 1615.017778156388, 'JetMET': 1728.556810423007}
-{'Muon L1T EGamma ': 0.015729474992106, 'Tracker Muon HLT EGamma ': 0.02105143004993, 'ECAL L1T ': 0.10673483568605799, 'Tracker L1T HLT EGamma ': 0.137197921216033, 'ECAL Muon EGamma ': 0.139984188704342, 'ECAL Muon L1T EGamma ': 0.14386492174568, 'Tracker HCAL ': 0.169547324311586, 'L1T JetMET EGamma ': 0.20385079171548898, 'Muon L1T JetMET EGamma ': 0.20559420465350603, 'Muon EGamma ': 0.21298056320730102, 'Tracker L1T EGamma ': 0.22636883179520598, 'HCAL Muon JetMET EGamma ': 0.28505534885755, 'Tracker L1T JetMET EGamma ': 0.32160033459393983, 'Tracker HCAL L1T JetMET EGamma ': 0.40234651353312, 'Tracker L1T JetMET ': 0.5172190181395581, 'Muon HLT EGamma ': 0.5791350891247079, 'HCAL HLT JetMET ': 0.9253184141862261, 'Tracker EGamma ': 1.287584909156692, 'Muon JetMET EGamma ': 1.5580425022305018, 'Tracker HCAL JetMET EGamma ': 1.650032748934185, 'Muon L1T ': 1.7230049865240782, 'Tracker Muon L1T JetMET EGamma ': 1.9726132514266281, 'L1T EGamma ': 2.094292512422749, 'Tracker HCAL L1T JetMET ': 2.2349678573337357, 'Muon JetMET ': 2.277162787085205, 'Tracker JetMET EGamma ': 2.2942725566322446, 'HCAL Muon L1T JetMET EGamma ': 2.790016856060661, 'Tracker JetMET ': 2.8818029354971246, 'Tracker ECAL HCAL Muon JetMET EGamma ': 3.9830407707911704, 'HCAL L1T HLT ': 4.89554899577213, 'HCAL Muon EGamma ': 5.052651235955426, 'HCAL Muon ': 5.546948178549342, 'HCAL EGamma ': 6.634684409448217, 'HCAL Muon JetMET ': 8.225824734143275, 'JetMET EGamma ': 13.037433472047042, 'HCAL L1T EGamma ': 14.357459464082787, 'ECAL EGamma ': 15.52785436549148, 'ECAL ': 17.310037348916353, 'ECAL HCAL Muon JetMET EGamma ': 22.19355801533031, 'L1T HLT ': 23.369855837135503, 'HLT ': 26.118142294197316, 'HCAL L1T JetMET EGamma ': 26.616423540090135, 'Muon ': 36.723997355802204, 'HCAL L1T ': 38.81634619469683, 'Tracker Muon JetMET EGamma ': 40.829223369401205, 'Tracker L1T ': 62.71125358211146, 'ECAL JetMET EGamma ': 99.82957285677516, 'HCAL JetMET ': 113.95581886443344, 'HLT JetMET ': 119.2013218741814, 'EGamma ': 130.31803205175638, 'L1T ': 141.4382604681594, 'Tracker ': 192.42885030603838, 'L1T JetMET ': 223.1852693562708, 'HCAL JetMET EGamma ': 303.9916092570687, 'JetMET ': 337.1132687777285, 'HCAL L1T JetMET ': 395.87448903191677, 'HCAL ': 656.4160306639861}
-{'ECAL ': 17.310037348916353, 'HLT ': 26.118142294197316, 'Muon ': 36.723997355802204, 'EGamma ': 130.31803205175638, 'L1T ': 141.4382604681594, 'Tracker ': 192.42885030603838, 'JetMET ': 337.1132687777285, 'HCAL ': 656.4160306639861, 'Mixed': 1575.213620897458}
-{'Muon ': 0.011796675486227483, 'EGamma ': 0.0418614433288394, 'L1T ': 0.04543354155905305, 'Tracker ': 0.061813006880895256, 'JetMET ': 0.10828929637867785, 'HCAL ': 0.2108574081050345, 'Mixed': 0.5059984000972805}
-{'Muon ': 1.1796675486227484, 'HCAL L1T ': 1.246879077959505, 'Tracker Muon JetMET EGamma ': 1.3115377767214205, 'Tracker L1T ': 2.0144438544509575, 'ECAL JetMET EGamma ': 3.206778019043769, 'HCAL JetMET ': 3.660548719374768, 'HLT JetMET ': 3.8290475245797237, 'EGamma ': 4.18614433288394, 'L1T ': 4.5433541559053054, 'Tracker ': 6.181300688089525, 'L1T JetMET ': 7.169274549264778, 'HCAL JetMET EGamma ': 9.764978278910377, 'JetMET ': 10.828929637867784, 'HCAL L1T JetMET ': 12.716488445253104, 'HCAL ': 21.085740810503452}
-{'bpix_ready': 112.04865150625362, 'fpix_ready': 124.33551006028702, 'tibtid_ready': 139.50434496245134, 'tecm_ready': 139.7565510790086, 'tecp_ready': 166.54398766296453, 'tracker-pixel': 182.3360029417513, 'tob_ready': 193.055797476052, 'tracker-strip': 211.08967684138298, 'tracker-track': 272.67860728905987}
+using the input from /afs/cern.ch/work/s/syu/DQM_lumiloss_csvFiles/output_call7to23.csv
+['make_dc_plot.py', '-c', '/afs/cern.ch/work/s/syu/DQM_lumiloss_csvFiles/output_call7to23.csv', '-p', 'calls7to23', '-d', 'figures_calls7to23']
+Total recorded luminosity for these runs is:  37412.42016885471 /pb
+Total recorded luminosity loss for these runs is:  3113.2100154623186 /pb
+{'ecal-es': 32.66432940750585, 'csc-csc': 84.556476123609, 'muon-muon': 134.47953900154636, 'ecal-ecal': 141.92334118844835, 'hlt-hlt': 175.36331898839418, 'tracker-pixel': 182.3360029417513, 'l1t-l1tmu': 205.34951124175194, 'tracker-strip': 211.08967684138298, 'tracker-track': 272.67860728905987, 'egamma-egamma': 698.9132181412353, 'l1t-l1tcalo': 926.8317992397266, 'hcal-hcal': 1497.8137869506177, 'jetmet-jetmet': 1728.672557555538}
+{'hf_ready': 0.0, 'ho_ready': 19.88677591237359, 'bpix_ready': 112.04865150625362, 'fpix_ready': 124.34953822604261, 'tibtid_ready': 139.50434496245134, 'tecm_ready': 139.7565510790086, 'tecp_ready': 166.54398766296453, 'tob_ready': 193.055797476052, 'hbheb_ready': 332.9118647009908, 'hbhec_ready': 467.618215563996, 'hbhea_ready': 493.4539855693986}
+{'Muon': 134.47953900154636, 'ECAL': 159.2346479484746, 'HLT': 175.36331898839418, 'Tracker': 314.0830622086629, 'EGamma': 698.9132181412353, 'L1T': 944.3603685189856, 'HCAL': 1615.017778156388, 'JetMET': 1728.672557555538}
+{'Muon L1T EGamma ': 0.015729474992106, 'Tracker Muon HLT EGamma ': 0.02105143004993, 'ECAL L1T ': 0.10673483568605799, 'Tracker L1T HLT EGamma ': 0.137197921216033, 'ECAL Muon EGamma ': 0.139984188704342, 'ECAL Muon L1T EGamma ': 0.14386492174568, 'Tracker HCAL ': 0.169547324311586, 'L1T JetMET EGamma ': 0.20385079171548898, 'Muon L1T JetMET EGamma ': 0.20559420465350603, 'Muon EGamma ': 0.21298056320730102, 'Tracker L1T EGamma ': 0.22636883179520598, 'HCAL Muon JetMET EGamma ': 0.28505534885755, 'Tracker L1T JetMET EGamma ': 0.32160033459393983, 'Tracker HCAL L1T JetMET EGamma ': 0.40234651353312, 'Tracker L1T JetMET ': 0.5172190181395581, 'Muon HLT EGamma ': 0.5791350891247079, 'HCAL HLT JetMET ': 0.9253184141862261, 'Tracker EGamma ': 1.287584909156692, 'Muon JetMET EGamma ': 1.5580425022305018, 'Tracker HCAL JetMET EGamma ': 1.650032748934185, 'Muon L1T ': 1.7230049865240782, 'Tracker Muon L1T JetMET EGamma ': 1.9726132514266281, 'L1T EGamma ': 2.094292512422749, 'Tracker HCAL L1T JetMET ': 2.2349678573337357, 'Muon JetMET ': 2.277162787085205, 'Tracker JetMET EGamma ': 2.2942725566322446, 'HCAL Muon L1T JetMET EGamma ': 2.790016856060661, 'Tracker JetMET ': 2.8818029354971246, 'Tracker ECAL HCAL Muon JetMET EGamma ': 3.9830407707911704, 'HCAL L1T HLT ': 4.89554899577213, 'HCAL Muon EGamma ': 5.052651235955426, 'HCAL Muon ': 5.546948178549342, 'HCAL EGamma ': 6.634684409448217, 'HCAL Muon JetMET ': 8.225824734143275, 'JetMET EGamma ': 13.037433472047042, 'HCAL L1T EGamma ': 14.357459464082787, 'ECAL EGamma ': 15.52785436549148, 'ECAL ': 17.310037348916353, 'ECAL HCAL Muon JetMET EGamma ': 22.19355801533031, 'L1T HLT ': 23.369855837135503, 'HLT ': 26.118142294197316, 'HCAL L1T JetMET EGamma ': 26.616423540090135, 'Muon ': 36.723997355802204, 'HCAL L1T ': 38.81634619469683, 'Tracker Muon JetMET EGamma ': 40.829223369401205, 'Tracker L1T ': 62.71125358211146, 'ECAL JetMET EGamma ': 99.82957285677516, 'HCAL JetMET ': 113.95581886443344, 'HLT JetMET ': 119.31706900671246, 'EGamma ': 130.31803205175638, 'L1T ': 141.4382604681594, 'Tracker ': 192.44287847179396, 'L1T JetMET ': 223.1852693562708, 'HCAL JetMET EGamma ': 303.9916092570687, 'JetMET ': 337.1132687777285, 'HCAL L1T JetMET ': 395.87448903191677, 'HCAL ': 656.4160306639861}
+{'ECAL ': 17.310037348916353, 'HLT ': 26.118142294197316, 'Muon ': 36.723997355802204, 'EGamma ': 130.31803205175638, 'L1T ': 141.4382604681594, 'Tracker ': 192.44287847179396, 'JetMET ': 337.1132687777285, 'HCAL ': 656.4160306639861, 'Mixed': 1575.3293680299892}
+{'Muon ': 0.011796183737494694, 'EGamma ': 0.0418596983192616, 'L1T ': 0.04543164764525387, 'Tracker ': 0.06181493619639913, 'JetMET ': 0.10828478229974678, 'HCAL ': 0.21084861843684738, 'Mixed': 0.5060144867213686}
+{'Muon ': 1.1796183737494692, 'HCAL L1T ': 1.24682710134904, 'Tracker Muon JetMET EGamma ': 1.311483104789446, 'Tracker L1T ': 2.0143598816220143, 'ECAL JetMET EGamma ': 3.206644343329027, 'HCAL JetMET ': 3.6603961280623962, 'HLT JetMET ': 3.8326058445817255, 'EGamma ': 4.185969831926159, 'L1T ': 4.543164764525387, 'Tracker ': 6.181493619639912, 'L1T JetMET ': 7.168975695432719, 'HCAL JetMET EGamma ': 9.764571222218855, 'JetMET ': 10.828478229974678, 'HCAL L1T JetMET ': 12.715958353780655, 'HCAL ': 21.084861843684738}
+{'bpix_ready': 112.04865150625362, 'fpix_ready': 124.34953822604261, 'tibtid_ready': 139.50434496245134, 'tecm_ready': 139.7565510790086, 'tecp_ready': 166.54398766296453, 'tracker-pixel': 182.3360029417513, 'tob_ready': 193.055797476052, 'tracker-strip': 211.08967684138298, 'tracker-track': 272.67860728905987}
 {'ecal-es': 32.66432940750585, 'ecal-ecal': 141.92334118844835}
 {'hf_ready': 0.0, 'ho_ready': 19.88677591237359, 'hbheb_ready': 332.9118647009908, 'hbhec_ready': 467.618215563996, 'hbhea_ready': 493.4539855693986, 'hcal-hcal': 1497.8137869506177}
 {'dt-dt': 0.0, 'csc-csc': 84.556476123609, 'muon-muon': 134.47953900154636}
 {'l1t-l1tmu': 205.34951124175194, 'l1t-l1tcalo': 926.8317992397266}
-{'hlt-hlt': 175.24757185586313}
-{'jetmet-jetmet': 1728.556810423007}
+{'hlt-hlt': 175.36331898839418}
+{'jetmet-jetmet': 1728.672557555538}
 {'egamma-egamma': 698.9132181412353}
 defaultdict(<class 'str'>, {'Mixed': 'brown', 'Tracker ': 'purple', 'ECAL ': 'red', 'HCAL ': 'green', 'Muon ': 'orange', 'L1T ': 'blue', 'HLT ': 'pink', 'JetMET ': 'gray', 'EGamma ': 'olive'})
 ['Muon ', 'EGamma ', 'L1T ', 'Tracker ', 'JetMET ', 'HCAL ', 'Mixed']
-The png files are in the directory /afs/cern.ch/work/s/syu/DQMSpace/runregistry_scripts/lumiloss/figures_calls7to23
+The png files are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/figures_calls7to23
