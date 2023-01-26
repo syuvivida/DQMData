@@ -1,3 +1,31 @@
+
+
+The period to process lumiloss plots is eraF
+We will run step plot
+The output csv/JSON files are in the directory Era
+
+
+
+
+Steps include: all        --> running all steps (inputcsv, json, outputcsv, plot, dump)
+The following options are only one step per job
+               inputcsv   --> producing csv files for the input runs using brilcalc
+               json       --> producing muon and golden JSON files
+                              Note, only golden JSON files are required for the next step
+                              If you lose connection to the DB after producing golden JSON file, you can move on to the next step
+               outputcsv  --> producing run registry info for the input runs
+               plot       --> make luminosity loss plots
+               dump       --> dump the major lumi loss into text files
+
+
+The following options run the job from step xx to the last step
+               json_all       --> running json, outputcsv, plot, dump
+               outputcsv_all  --> running outputcsv, plot, dump
+               plot_all       --> running plot, dump
+
+
+The directory /afs/cern.ch/user/s/syu/scripts/runregistry/Era exists.
+The run list is Era/eraF_runs.txt
 Python 3.6.12
 Using base prefix '/opt/rh/rh-python36/root/usr'
 New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
@@ -9,32 +37,38 @@ Requirement already satisfied: runregistry in ./venv/lib/python3.6/site-packages
 Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
 Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
 Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
-Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
 Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
-Total recorded luminosity for these runs is:  18364.14616931512 /pb
-Total recorded luminosity loss for these runs is:  753.903198819851 /pb
+creating a new directory figures_eraF
+
+
+Now we are going to produce lumiloss plots in eraF
+using the input from Era/output_eraF.csv
+['make_dc_plot.py', '-c', 'Era/output_eraF.csv', '-p', 'eraF', '-d', 'figures_eraF']
+Total recorded luminosity for these runs is:  18364.160197480876 /pb
+Total recorded luminosity loss for these runs is:  753.9172269856066 /pb
 {'muon-muon': 41.47019611965661, 'tracker-strip': 65.01373176987816, 'tracker-pixel': 104.79237131981654, 'tracker-track': 132.3012789945992, 'l1t-l1tmu': 159.91255008552244, 'egamma-egamma': 171.12126688832302, 'hcal-hcal': 181.41788541595437, 'jetmet-jetmet': 309.1909558880933, 'l1t-l1tcalo': 317.8333783866082}
-{'ho_ready': 0.645373876711283, 'hbhec_ready': 36.688380590250404, 'hbheb_ready': 36.852327269116905, 'bpix_ready': 40.40137337973239, 'fpix_ready': 44.67367290143831, 'tecm_ready': 66.91943583174563, 'tibtid_ready': 67.82829600576972, 'tob_ready': 68.27867613623546, 'tecp_ready': 70.1997649720362, 'hbhea_ready': 98.88476581821749}
-{'Muon': 41.47019611965661, 'Tracker': 143.6510129258839, 'EGamma': 171.12126688832302, 'HCAL': 242.1875327823337, 'JetMET': 309.1909558880933, 'L1T': 318.69636221402175}
-{'Tracker HCAL L1T JetMET EGamma ': 0.001693748914484, 'Muon L1T JetMET EGamma ': 0.060323680664451, 'HCAL EGamma ': 0.061272734743264, 'Tracker HCAL ': 0.169547324311586, 'Tracker JetMET ': 0.526600895498005, 'Tracker EGamma ': 0.9758426489427999, 'HCAL L1T JetMET ': 1.4798931373550919, 'Tracker Muon L1T JetMET EGamma ': 1.523177629237213, 'HCAL JetMET EGamma ': 3.4512719851369593, 'JetMET ': 4.211805518456593, 'HCAL L1T ': 14.858011809526477, 'L1T ': 19.015492847505563, 'HCAL JetMET ': 38.26207140714944, 'Tracker ': 38.59717337343047, 'Tracker Muon JetMET EGamma ': 39.88666291520577, 'Tracker L1T ': 61.970314390343496, 'EGamma ': 125.16084906230691, 'HCAL ': 183.90373874064701, 'L1T JetMET ': 219.78728248730394}
-{'JetMET ': 4.211805518456593, 'L1T ': 19.015492847505563, 'Tracker ': 38.59717337343047, 'EGamma ': 125.16084906230691, 'HCAL ': 183.90373874064701, 'Mixed': 383.01413927750417}
-{'L1T ': 0.025222724717539512, 'Tracker ': 0.05119645789253835, 'EGamma ': 0.16601713490303777, 'HCAL ': 0.24393548008355345, 'Mixed': 0.5080415362039435}
-{'HCAL L1T ': 1.970811615176191, 'L1T ': 2.5222724717539515, 'HCAL JetMET ': 5.075196851140084, 'Tracker ': 5.119645789253836, 'Tracker Muon JetMET EGamma ': 5.290687581329243, 'Tracker L1T ': 8.219929891178458, 'EGamma ': 16.601713490303776, 'HCAL ': 24.393548008355346, 'L1T JetMET ': 29.15324975823895}
-{'bpix_ready': 40.40137337973239, 'fpix_ready': 44.67367290143831, 'tracker-strip': 65.01373176987816, 'tecm_ready': 66.91943583174563, 'tibtid_ready': 67.82829600576972, 'tob_ready': 68.27867613623546, 'tecp_ready': 70.1997649720362, 'tracker-pixel': 104.79237131981654, 'tracker-track': 132.3012789945992}
+{'ho_ready': 0.645373876711283, 'hbhec_ready': 36.688380590250404, 'hbheb_ready': 36.852327269116905, 'bpix_ready': 40.40137337973239, 'fpix_ready': 44.6877010671939, 'tecm_ready': 66.91943583174563, 'tibtid_ready': 67.82829600576972, 'tob_ready': 68.27867613623546, 'tecp_ready': 70.1997649720362, 'hbhea_ready': 98.88476581821749}
+{'Muon': 41.47019611965661, 'Tracker': 143.6650410916395, 'EGamma': 171.12126688832302, 'HCAL': 242.1875327823337, 'JetMET': 309.1909558880933, 'L1T': 318.69636221402175}
+{'Tracker HCAL L1T JetMET EGamma ': 0.001693748914484, 'Muon L1T JetMET EGamma ': 0.060323680664451, 'HCAL EGamma ': 0.061272734743264, 'Tracker HCAL ': 0.169547324311586, 'Tracker JetMET ': 0.526600895498005, 'Tracker EGamma ': 0.9758426489427999, 'HCAL L1T JetMET ': 1.4798931373550919, 'Tracker Muon L1T JetMET EGamma ': 1.523177629237213, 'HCAL JetMET EGamma ': 3.4512719851369593, 'JetMET ': 4.211805518456593, 'HCAL L1T ': 14.858011809526477, 'L1T ': 19.015492847505563, 'HCAL JetMET ': 38.26207140714944, 'Tracker ': 38.61120153918606, 'Tracker Muon JetMET EGamma ': 39.88666291520577, 'Tracker L1T ': 61.970314390343496, 'EGamma ': 125.16084906230691, 'HCAL ': 183.90373874064701, 'L1T JetMET ': 219.78728248730394}
+{'JetMET ': 4.211805518456593, 'L1T ': 19.015492847505563, 'Tracker ': 38.61120153918606, 'EGamma ': 125.16084906230691, 'HCAL ': 183.90373874064701, 'Mixed': 383.01413927750417}
+{'L1T ': 0.025222255397366847, 'Tracker ': 0.0512141123151749, 'EGamma ': 0.166014045816062, 'HCAL ': 0.24393094116704409, 'Mixed': 0.5080320830562697}
+{'HCAL L1T ': 1.9707749442115001, 'L1T ': 2.522225539736685, 'HCAL JetMET ': 5.07510241676437, 'Tracker ': 5.12141123151749, 'Tracker Muon JetMET EGamma ': 5.290589137309535, 'Tracker L1T ': 8.219776942638637, 'EGamma ': 16.6014045816062, 'HCAL ': 24.393094116704408, 'L1T JetMET ': 29.15270730264133}
+{'bpix_ready': 40.40137337973239, 'fpix_ready': 44.6877010671939, 'tracker-strip': 65.01373176987816, 'tecm_ready': 66.91943583174563, 'tibtid_ready': 67.82829600576972, 'tob_ready': 68.27867613623546, 'tecp_ready': 70.1997649720362, 'tracker-pixel': 104.79237131981654, 'tracker-track': 132.3012789945992}
 {'ecal-ecal': 0.0, 'ecal-es': 0.0}
 {'hf_ready': 0.0, 'ho_ready': 0.645373876711283, 'hbhec_ready': 36.688380590250404, 'hbheb_ready': 36.852327269116905, 'hbhea_ready': 98.88476581821749, 'hcal-hcal': 181.41788541595437}
 {'csc-csc': 0.0, 'dt-dt': 0.0, 'muon-muon': 41.47019611965661}
@@ -44,3 +78,5 @@ Total recorded luminosity loss for these runs is:  753.903198819851 /pb
 {'egamma-egamma': 171.12126688832302}
 defaultdict(<class 'str'>, {'Mixed': 'brown', 'Tracker ': 'purple', 'ECAL ': 'red', 'HCAL ': 'green', 'Muon ': 'orange', 'L1T ': 'blue', 'HLT ': 'pink', 'JetMET ': 'gray', 'EGamma ': 'olive'})
 ['L1T ', 'Tracker ', 'EGamma ', 'HCAL ', 'Mixed']
+The png files are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/figures_eraF
+The script produce_lumilossplots.sh has produced luminosity loss plots and will stop now
