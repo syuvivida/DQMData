@@ -10,18 +10,18 @@ Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-package
 Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
 Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
 Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
 Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
 You are using pip version 9.0.1, however version 22.3.1 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
@@ -29,8 +29,8 @@ creating a new directory figures_eraF
 
 
 Now we are going to produce lumiloss plots in eraF
-using the input from output_Era/output_final_eraF.csv
-['make_dc_plot.py', '-c', 'output_Era/output_final_eraF.csv', '-p', 'eraF', '-d', 'figures_eraF']
+using the input from Era/output_eraF.csv
+['make_dc_plot.py', '-c', 'Era/output_eraF.csv', '-p', 'eraF', '-d', 'figures_eraF']
 Total recorded luminosity for these runs is:  18364.160197480876 /pb
 Total recorded luminosity loss for these runs is:  753.9172269856066 /pb
 {'muon-muon': 41.47019611965661, 'tracker-strip': 65.01373176987816, 'l1t-l1tmu': 97.29111355693126, 'l1t-l1tcalo': 97.74286739716177, 'tracker-pixel': 104.79237131981654, 'tracker-track': 132.3012789945992, 'egamma-egamma': 171.12126688832302, 'hcal-hcal': 181.41788541595437, 'jetmet-jetmet': 309.1909558880933}
