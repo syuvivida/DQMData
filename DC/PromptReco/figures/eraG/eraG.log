@@ -1,0 +1,64 @@
+Python 3.6.12
+Using base prefix '/opt/rh/rh-python36/root/usr'
+New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
+Not overwriting existing python script /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python (you must use /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3)
+Installing setuptools, pip, wheel...done.
+Running virtualenv with interpreter /opt/rh/rh-python36/root/usr/bin/python3
+/afs/cern.ch/user/s/syu/scripts/runregistry
+Requirement already satisfied: runregistry in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
+Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
+Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
+Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+You are using pip version 9.0.1, however version 23.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
+You are using pip version 9.0.1, however version 23.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+creating a new directory figures_newEraG
+
+
+Now we are going to produce lumiloss plots in newEraG
+using the input from Era/output_eraG.csv
+make_dc_plot_sub.py:279: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  axes = plt.figure(icount)
+['make_dc_plot_sub.py', '-c', 'Era/output_eraG.csv', '-p', 'newEraG', '-d', 'figures_newEraG']
+Total recorded luminosity for these runs is:  3245.4164124389727 /pb
+Total recorded luminosity loss for these runs is:  189.97031256645568 /pb
+{'ecal-ecal': 0.105466069610327, 'tracker-track': 0.33140069754988, 'tracker-pixel': 4.16094468304367, 'tracker-strip': 4.58632363487294, 'hcal-hcal': 6.680559499607825, 'l1t-l1tmu': 14.114422092689713, 'l1t-l1tcalo': 14.114422092689713, 'jetmet-jetmet': 140.82375439199643, 'hlt-hlt': 150.2203147276383}
+{'ho_ready': 0.0, 'hbhec_ready': 0.9253184141862261, 'hbheb_ready': 2.186799265381798, 'tecm_ready': 4.58632363487294, 'tecp_ready': 5.114475256636913, 'fpix_ready': 5.218175031220868, 'bpix_ready': 5.299040548024692, 'tibtid_ready': 5.4394161876485, 'tob_ready': 5.4394161876485}
+{'ECAL': 0.105466069610327, 'Tracking': 0.33140069754988, 'SiStrip': 5.4394161876485, 'PixelPhase1': 6.356270896201888, 'HCAL': 9.792677179175847, 'L1T': 14.114422092689713, 'JetMET': 140.82375439199643, 'HLT': 150.2203147276383}
+{'ECAL ': 0.105466069610327, 'SiStrip L1T ': 0.1277208540582, 'PixelPhase1 JetMET ': 0.303483473112724, 'PixelPhase1 SiStrip Tracking JetMET ': 0.33140069754988, 'L1T JetMET ': 0.44814739628689, 'HCAL HLT JetMET ': 0.9253184141862261, 'SiStrip ': 1.150750650546628, 'PixelPhase1 ': 1.8918427400454911, 'L1T ': 3.1959478029753288, 'PixelPhase1 SiStrip ': 3.8295439854937907, 'HCAL ': 8.867234980253851, 'L1T HLT ': 10.342482254633524, 'JetMET ': 19.498335404148378, 'HLT ': 19.635445052106274, 'HLT JetMET ': 119.31706900671246}
+{'ECAL ': 0.105466069610327, 'SiStrip ': 1.150750650546628, 'PixelPhase1 ': 1.8918427400454911, 'L1T ': 3.1959478029753288, 'HCAL ': 8.867234980253851, 'JetMET ': 19.498335404148378, 'HLT ': 19.635445052106274, 'Mixed': 135.62528986676932}
+{'L1T ': 0.01682340656178748, 'HCAL ': 0.04667695104808496, 'JetMET ': 0.10263885520179604, 'HLT ': 0.1033605976999031, 'Mixed': 0.7139288662238985}
+{'L1T ': 1.6823406561787477, 'PixelPhase1 SiStrip ': 2.015864444163682, 'HCAL ': 4.667695104808496, 'L1T HLT ': 5.444262377057206, 'JetMET ': 10.263885520179604, 'HLT ': 10.336059769990312, 'HLT JetMET ': 62.80827114235168}
+{'tracker-pixel': 4.16094468304367, 'fpix_ready': 5.218175031220868, 'bpix_ready': 5.299040548024692}
+{'tracker-strip': 4.58632363487294, 'tecm_ready': 4.58632363487294, 'tecp_ready': 5.114475256636913, 'tibtid_ready': 5.4394161876485, 'tob_ready': 5.4394161876485}
+{'ecal-ecal': 0.105466069610327}
+{'ecal-es': 0.0}
+{'hbhea_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.0, 'hbhec_ready': 0.9253184141862261, 'hbheb_ready': 2.186799265381798, 'hcal-hcal': 6.680559499607825}
+{'csc-csc': 0.0}
+{'dt-dt': 0.0}
+{'l1t-l1tcalo': 14.114422092689713, 'l1t-l1tmu': 14.114422092689713}
+{'hlt-hlt': 150.2203147276383}
+{'tracker-track': 0.33140069754988}
+{'muon-muon': 0.0}
+{'jetmet-jetmet': 140.82375439199643}
+{'egamma-egamma': 0.0}
+{'tracker-pixel': 0.0, 'fpix_ready': 1.057230348177196, 'bpix_ready': 1.1380958649810191, 'Mixed': 4.16094468304367}
+{'tracker-strip': 0.0, 'tibtid_ready': 0.0, 'tecm_ready': 0.0, 'tecp_ready': 0.0, 'tob_ready': 0.0, 'Mixed': 5.4394161876485}
+{'hbhea_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.0, 'Mixed': 0.0, 'hbhec_ready': 0.9253184141862261, 'hbheb_ready': 2.186799265381798, 'hcal-hcal': 6.680559499607825}
+{'l1t-l1tcalo': 0.0, 'l1t-l1tmu': 0.0, 'Mixed': 14.114422092689713}
+defaultdict(<class 'str'>, {'Mixed': 'brown', 'PixelPhase1 ': 'purple', 'SiStrip ': 'plum', 'ECAL ': 'red', 'ES ': 'pink', 'HCAL ': 'green', 'CSC ': 'orange', 'DT ': 'yellow', 'L1T ': 'blue', 'HLT ': 'pink', 'Tracking ': 'orchid', 'MuonPOG ': 'goldenrod', 'JetMET ': 'gray', 'EGamma ': 'olive'})
+['L1T ', 'HCAL ', 'JetMET ', 'HLT ', 'Mixed']
+The png files are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/figures_newEraG
