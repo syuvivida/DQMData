@@ -1,35 +1,3 @@
-
-
-The period to process lumiloss plots is eraB
-We will run step plot_all
-The output csv/JSON files are in the directory eraB_output
-The input run file is 2023_Era/eraB_runs.txt
-The dataset in offline RR is /PromptReco/Collisions2023/DQM
-The class in offline RR is Collisions23
-
-
-
-
-Steps include: all        --> running all steps (inputcsv, json, outputcsv, plot, dump)
-The following options are only one step per job
-               inputcsv   --> producing csv files for the input runs using brilcalc
-               json       --> producing muon and golden JSON files
-                              Note, only golden JSON files are required for the next step
-                              If you lose connection to the DB after producing golden JSON file, you can move on to the next step
-               outputcsv  --> producing run registry info for the input runs
-               plot       --> make luminosity loss plots
-               dump       --> dump the major lumi loss into text files
-
-
-The following options run the job from step xx to the last step
-               json_all       --> running json, outputcsv, plot, dump
-               outputcsv_all  --> running outputcsv, plot, dump
-               plot_all       --> running plot, dump
-
-
-Computing luminosity loss without requiring HLT path
-The directory /afs/cern.ch/user/s/syu/scripts/runregistry/eraB_output exists.
-The run list is 2023_Era/eraB_runs.txt
 Python 3.6.12
 Using base prefix '/opt/rh/rh-python36/root/usr'
 New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
@@ -43,108 +11,65 @@ Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (f
 Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
 Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
 You are using pip version 9.0.1, however version 23.1.2 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
 Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
 Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
 Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
 You are using pip version 9.0.1, however version 23.1.2 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
-eraB_output/figures_eraB directory exists.
-moving the original eraB_output/figures_eraB to tmp
-creating a new directory eraB_output/figures_eraB
+Requirement already satisfied: cernrequests==0.3.3 in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests==0.3.3)
+Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from cernrequests==0.3.3)
+Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->cernrequests==0.3.3)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->cernrequests==0.3.3)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->cernrequests==0.3.3)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->cernrequests==0.3.3)
+You are using pip version 9.0.1, however version 23.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+eraB_new/figures_eraB directory exists.
+moving the original eraB_new/figures_eraB to tmp
+creating a new directory eraB_new/figures_eraB
 
 
 Now we are going to produce lumiloss plots in eraB
-using the input from eraB_output/output_eraB.csv
+using the input from eraB_new/output_eraB.csv
 make_dc_plot_sub.py:279: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
   axes = plt.figure(icount)
-['make_dc_plot_sub.py', '-c', 'eraB_output/output_eraB.csv', '-p', 'eraB', '-d', 'eraB_output/figures_eraB']
-Total recorded luminosity for these runs is:  1170.901819677498 /pb
-Total recorded luminosity loss for these runs is:  473.9756592802019 /pb
-{'tracker-pixel': 3.847644509347114, 'muon-muon': 4.157430581244312, 'tracker-strip': 6.93772194865363, 'tracker-track': 7.6571884795626515, 'egamma-egamma': 16.052016927856346, 'l1t-l1tcalo': 17.73586599540554, 'l1t-l1tmu': 18.53090205652583, 'jetmet-jetmet': 38.89141357077101, 'hcal-hcal': 415.6910412287127}
-{'ho_ready': 0.039323019924822, 'hbhec_ready': 0.380064186665503, 'bpix_ready': 1.9977398044470602, 'tecm_ready': 2.1704323399561143, 'tob_ready': 2.24545796481035, 'tibtid_ready': 2.282515700039474, 'fpix_ready': 2.365473546241725, 'tecp_ready': 2.4043057557577345}
-{'MuonPOG': 4.157430581244312, 'PixelPhase1': 4.185950203040009, 'SiStrip': 7.293364144625475, 'Tracking': 7.6571884795626515, 'EGamma': 16.052016927856346, 'L1T': 18.53090205652583, 'JetMET': 38.89141357077101, 'HCAL': 415.73036424863756}
-{'SiStrip JetMET EGamma ': 0.002369057334184, 'PixelPhase1 JetMET EGamma ': 0.0024035105523379998, 'PixelPhase1 SiStrip JetMET EGamma ': 0.007216546644563999, 'SiStrip JetMET ': 0.007658201196317, 'PixelPhase1 JetMET ': 0.008412892889891, 'MuonPOG JetMET EGamma ': 0.016502579450462, 'PixelPhase1 SiStrip JetMET ': 0.017382196173189, 'PixelPhase1 SiStrip Tracking JetMET ': 0.019541702315951, 'PixelPhase1 L1T ': 0.028546212195209, 'SiStrip HCAL ': 0.029459363012119, 'SiStrip L1T ': 0.030429723142989, 'L1T JetMET EGamma ': 0.049211290325485005, 'PixelPhase1 L1T Tracking MuonPOG JetMET EGamma ': 0.06901007463582899, 'L1T MuonPOG JetMET EGamma ': 0.08104126543640601, 'SiStrip ': 0.091568374285118, 'PixelPhase1 HCAL ': 0.097534730887431, 'PixelPhase1 SiStrip L1T Tracking ': 0.109958553254145, 'L1T EGamma ': 0.112225834219691, 'PixelPhase1 ': 0.130386496423663, 'SiStrip Tracking ': 0.133065339683306, 'EGamma ': 0.23761337486851097, 'PixelPhase1 SiStrip ': 0.360485726747594, 'L1T JetMET ': 0.39582594069945004, 'SiStrip L1T Tracking MuonPOG JetMET EGamma ': 0.39981559873675393, 'PixelPhase1 SiStrip HCAL Tracking ': 0.553054419800646, 'PixelPhase1 Tracking JetMET EGamma ': 0.8412339505843636, 'PixelPhase1 SiStrip Tracking ': 0.865529570208758, 'PixelPhase1 SiStrip Tracking JetMET EGamma ': 1.0749225597392327, 'SiStrip Tracking MuonPOG JetMET EGamma ': 3.590587604956146, 'JetMET EGamma ': 9.567252199787326, 'L1T ': 17.254364105851156, 'JetMET ': 22.740414918728085, 'HCAL ': 415.05002388485076}
-{'SiStrip ': 0.091568374285118, 'PixelPhase1 ': 0.130386496423663, 'EGamma ': 0.23761337486851097, 'L1T ': 17.254364105851156, 'Mixed': 18.47128812519482, 'JetMET ': 22.740414918728085, 'HCAL ': 415.05002388485076}
-{'L1T ': 0.036403481419392536, 'Mixed': 0.03897096351581861, 'JetMET ': 0.04797802265471306, 'HCAL ': 0.875677929358571}
-{'JetMET EGamma ': 2.018511291131813, 'L1T ': 3.6403481419392536, 'JetMET ': 4.797802265471305, 'HCAL ': 87.5677929358571}
-{'bpix_ready': 1.9977398044470602, 'fpix_ready': 2.365473546241725, 'tracker-pixel': 3.847644509347114}
-{'tecm_ready': 2.1704323399561143, 'tob_ready': 2.24545796481035, 'tibtid_ready': 2.282515700039474, 'tecp_ready': 2.4043057557577345, 'tracker-strip': 6.93772194865363}
+['make_dc_plot_sub.py', '-c', 'eraB_new/output_eraB.csv', '-p', 'eraB', '-d', 'eraB_new/figures_eraB']
+Total recorded luminosity for these runs is:  1166.7443890962536 /pb
+Total recorded luminosity loss for these runs is:  520.1381598896064 /pb
+{'tracker-strip': 2.9472065032012824, 'tracker-track': 3.597444118142745, 'tracker-pixel': 3.778484959562198, 'egamma-egamma': 11.894586346612043, 'jetmet-jetmet': 34.733982989526666, 'l1t-l1tcalo': 67.82215747137784, 'l1t-l1tmu': 68.21744727684002, 'hcal-hcal': 415.6910412287127}
+{'ho_ready': 0.039031169838194, 'hbhec_ready': 0.380064186665503, 'bpix_ready': 1.9977398044470602, 'tecm_ready': 2.1701814120393252, 'tob_ready': 2.245276379972233, 'tibtid_ready': 2.282334115201357, 'fpix_ready': 2.3652919614036083, 'tecp_ready': 2.4041241709196175}
+{'SiStrip': 3.3027793560944545, 'Tracking': 3.597444118142745, 'PixelPhase1': 4.116609068416976, 'EGamma': 11.894586346612043, 'JetMET': 34.733982989526666, 'L1T': 68.21744727684002, 'HCAL': 415.730072398551}
+{'SiStrip JetMET EGamma ': 0.002369057334184, 'PixelPhase1 JetMET EGamma ': 0.0024035105523379998, 'PixelPhase1 SiStrip JetMET EGamma ': 0.007216546644563999, 'SiStrip JetMET ': 0.007658201196317, 'PixelPhase1 JetMET ': 0.008412892889891, 'PixelPhase1 SiStrip JetMET ': 0.017382196173189, 'PixelPhase1 SiStrip Tracking JetMET ': 0.019541702315951, 'SiStrip HCAL ': 0.029459363012119, 'L1T JetMET EGamma ': 0.049211290325485005, 'PixelPhase1 ': 0.073043793522825, 'PixelPhase1 L1T ': 0.085888915096047, 'PixelPhase1 HCAL ': 0.097534730887431, 'L1T EGamma ': 0.112225834219691, 'SiStrip ': 0.12199809742810701, 'SiStrip Tracking ': 0.133065339683306, 'EGamma ': 0.23761337486851097, 'PixelPhase1 SiStrip ': 0.360485726747594, 'L1T JetMET ': 0.39582594069945004, 'PixelPhase1 SiStrip HCAL Tracking ': 0.553054419800646, 'PixelPhase1 Tracking JetMET EGamma ': 0.8412339505843636, 'PixelPhase1 SiStrip Tracking ': 0.9754881234629029, 'PixelPhase1 SiStrip Tracking JetMET EGamma ': 1.0749225597392327, 'JetMET EGamma ': 9.567252199787326, 'JetMET ': 22.740414918728085, 'L1T ': 67.57429529649937, 'HCAL ': 415.05002388485076}
+{'PixelPhase1 ': 0.073043793522825, 'SiStrip ': 0.12199809742810701, 'EGamma ': 0.23761337486851097, 'Mixed': 14.34077052370837, 'JetMET ': 22.740414918728085, 'L1T ': 67.57429529649937, 'HCAL ': 415.05002388485076}
+{'Mixed': 0.027571079435417777, 'JetMET ': 0.04371995110598016, 'L1T ': 0.12991605021027736, 'HCAL ': 0.7979611108958831}
+{'JetMET EGamma ': 1.8393674868650034, 'JetMET ': 4.371995110598016, 'L1T ': 12.991605021027734, 'HCAL ': 79.7961110895883}
+{'bpix_ready': 1.9977398044470602, 'fpix_ready': 2.3652919614036083, 'tracker-pixel': 3.778484959562198}
+{'tecm_ready': 2.1701814120393252, 'tob_ready': 2.245276379972233, 'tibtid_ready': 2.282334115201357, 'tecp_ready': 2.4041241709196175, 'tracker-strip': 2.9472065032012824}
 {'ecal-ecal': 0.0}
 {'ecal-es': 0.0}
-{'hbhea_ready': 0.0, 'hbheb_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.039323019924822, 'hbhec_ready': 0.380064186665503, 'hcal-hcal': 415.6910412287127}
+{'hbhea_ready': 0.0, 'hbheb_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.039031169838194, 'hbhec_ready': 0.380064186665503, 'hcal-hcal': 415.6910412287127}
 {'csc-csc': 0.0}
 {'dt-dt': 0.0}
-{'l1t-l1tcalo': 17.73586599540554, 'l1t-l1tmu': 18.53090205652583}
+{'l1t-l1tcalo': 67.82215747137784, 'l1t-l1tmu': 68.21744727684002}
 {'hlt-hlt': 0.0}
-{'tracker-track': 7.6571884795626515}
-{'muon-muon': 4.157430581244312}
-{'jetmet-jetmet': 38.89141357077101}
-{'egamma-egamma': 16.052016927856346}
-{'bpix_ready': 0.0, 'fpix_ready': 0.338305693692894, 'tracker-pixel': 1.8059197894240797, 'Mixed': 2.0417247199230344}
-{'tibtid_ready': 0.0, 'tob_ready': 0.0, 'tecm_ready': 0.0021135348222819997, 'tecp_ready': 0.07365464899138902, 'Mixed': 2.3629996753360096, 'tracker-strip': 4.854596285475792}
-{'hbhea_ready': 0.0, 'hbheb_ready': 0.0, 'hbhec_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.039323019924822, 'Mixed': 0.380064186665503, 'hcal-hcal': 415.3109770420473}
-{'l1t-l1tcalo': 0.0, 'l1t-l1tmu': 0.7950360611202919, 'Mixed': 17.73586599540554}
+{'tracker-track': 3.597444118142745}
+{'muon-muon': 0.0}
+{'jetmet-jetmet': 34.733982989526666}
+{'egamma-egamma': 11.894586346612043}
+{'bpix_ready': 0.0, 'fpix_ready': 0.338124108854777, 'tracker-pixel': 1.7367602396391646, 'Mixed': 2.0417247199230344}
+{'tibtid_ready': 0.0, 'tob_ready': 0.0, 'tecm_ready': 0.00204419174361, 'tecp_ready': 0.07365464899138902, 'tracker-strip': 0.8642624248615639, 'Mixed': 2.3628180904978926}
+{'hbhea_ready': 0.0, 'hbheb_ready': 0.0, 'hbhec_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.039031169838194, 'Mixed': 0.380064186665503, 'hcal-hcal': 415.3109770420473}
+{'l1t-l1tcalo': 0.0, 'l1t-l1tmu': 0.39528980546221004, 'Mixed': 67.82215747137784}
 defaultdict(<class 'str'>, {'Mixed': 'brown', 'PixelPhase1 ': 'purple', 'SiStrip ': 'plum', 'ECAL ': 'red', 'ES ': 'pink', 'HCAL ': 'green', 'CSC ': 'orange', 'DT ': 'yellow', 'L1T ': 'blue', 'HLT ': 'pink', 'Tracking ': 'orchid', 'MuonPOG ': 'goldenrod', 'JetMET ': 'gray', 'EGamma ': 'olive'})
-['L1T ', 'Mixed', 'JetMET ', 'HCAL ']
-The png files are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/eraB_output/figures_eraB
-Python 3.6.12
-Using base prefix '/opt/rh/rh-python36/root/usr'
-New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
-Not overwriting existing python script /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python (you must use /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3)
-Installing setuptools, pip, wheel...done.
-Running virtualenv with interpreter /opt/rh/rh-python36/root/usr/bin/python3
-/afs/cern.ch/user/s/syu/scripts/runregistry
-Requirement already satisfied: runregistry in ./venv/lib/python3.6/site-packages
-Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
-Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
-Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
-Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
-You are using pip version 9.0.1, however version 23.1.2 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.
-Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
-Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
-Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
-You are using pip version 9.0.1, however version 23.1.2 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.
-eraB_output/textFiles_eraB directory exists.
-moving the original eraB_output/textFiles_eraB to tmp
-creating a new directory eraB_output/textFiles_eraB
-
-
-Now we are going to produce lumiloss text files in eraB
-using the input from eraB_output/output_eraB.csv
-['dump_lumiloss_info_sub.py', '-c', 'eraB_output/output_eraB.csv', '-p', 'eraB', '-d', 'eraB_output/textFiles_eraB']
-Total recorded luminosity for these runs is:  1170.901819677498 /pb
-Total recorded luminosity loss for these runs is:  473.9756592802019 /pb
-{'tracker-pixel': 3.847644509347114, 'muon-muon': 4.157430581244312, 'tracker-strip': 6.93772194865363, 'tracker-track': 7.6571884795626515, 'egamma-egamma': 16.052016927856346, 'l1t-l1tcalo': 17.73586599540554, 'l1t-l1tmu': 18.53090205652583, 'jetmet-jetmet': 38.89141357077101, 'hcal-hcal': 415.6910412287127}
-{'ho_ready': 0.039323019924822, 'hbhec_ready': 0.380064186665503, 'bpix_ready': 1.9977398044470602, 'tecm_ready': 2.1704323399561143, 'tob_ready': 2.24545796481035, 'tibtid_ready': 2.282515700039474, 'fpix_ready': 2.365473546241725, 'tecp_ready': 2.4043057557577345}
-{'MuonPOG': 4.157430581244312, 'PixelPhase1': 4.185950203040009, 'SiStrip': 7.293364144625475, 'Tracking': 7.6571884795626515, 'EGamma': 16.052016927856346, 'L1T': 18.53090205652583, 'JetMET': 38.89141357077101, 'HCAL': 415.73036424863756}
-{'SiStrip JetMET EGamma ': 0.002369057334184, 'PixelPhase1 JetMET EGamma ': 0.0024035105523379998, 'PixelPhase1 SiStrip JetMET EGamma ': 0.007216546644563999, 'SiStrip JetMET ': 0.007658201196317, 'PixelPhase1 JetMET ': 0.008412892889891, 'MuonPOG JetMET EGamma ': 0.016502579450462, 'PixelPhase1 SiStrip JetMET ': 0.017382196173189, 'PixelPhase1 SiStrip Tracking JetMET ': 0.019541702315951, 'PixelPhase1 L1T ': 0.028546212195209, 'SiStrip HCAL ': 0.029459363012119, 'SiStrip L1T ': 0.030429723142989, 'L1T JetMET EGamma ': 0.049211290325485005, 'PixelPhase1 L1T Tracking MuonPOG JetMET EGamma ': 0.06901007463582899, 'L1T MuonPOG JetMET EGamma ': 0.08104126543640601, 'SiStrip ': 0.091568374285118, 'PixelPhase1 HCAL ': 0.097534730887431, 'PixelPhase1 SiStrip L1T Tracking ': 0.109958553254145, 'L1T EGamma ': 0.112225834219691, 'PixelPhase1 ': 0.130386496423663, 'SiStrip Tracking ': 0.133065339683306, 'EGamma ': 0.23761337486851097, 'PixelPhase1 SiStrip ': 0.360485726747594, 'L1T JetMET ': 0.39582594069945004, 'SiStrip L1T Tracking MuonPOG JetMET EGamma ': 0.39981559873675393, 'PixelPhase1 SiStrip HCAL Tracking ': 0.553054419800646, 'PixelPhase1 Tracking JetMET EGamma ': 0.8412339505843636, 'PixelPhase1 SiStrip Tracking ': 0.865529570208758, 'PixelPhase1 SiStrip Tracking JetMET EGamma ': 1.0749225597392327, 'SiStrip Tracking MuonPOG JetMET EGamma ': 3.590587604956146, 'JetMET EGamma ': 9.567252199787326, 'L1T ': 17.254364105851156, 'JetMET ': 22.740414918728085, 'HCAL ': 415.05002388485076}
-{'SiStrip ': 0.091568374285118, 'PixelPhase1 ': 0.130386496423663, 'EGamma ': 0.23761337486851097, 'L1T ': 17.254364105851156, 'Mixed': 18.47128812519482, 'JetMET ': 22.740414918728085, 'HCAL ': 415.05002388485076}
-{'L1T ': 0.036403481419392536, 'Mixed': 0.03897096351581861, 'JetMET ': 0.04797802265471306, 'HCAL ': 0.875677929358571}
-{'JetMET EGamma ': 2.018511291131813, 'L1T ': 3.6403481419392536, 'JetMET ': 4.797802265471305, 'HCAL ': 87.5677929358571}
-defaultdict(None, {'PixelPhase1 SiStrip L1T Tracking MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366403: 0.000181584838117}), 'L1T MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366403: 0.029788595951741992, 366406: 0.0, 366410: 0.006842456021262999, 366427: 0.006508997700824002, 366429: 0.009716148941611002, 366432: 0.007620778916403, 366434: 0.000114009873411, 366436: 0.010931434367389999, 366437: 0.0060524019094249995, 366892: 0.002279962355704, 366893: 0.001186479398633}), 'HCAL L1T MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366403: 0.000102193965858, 366429: 4.0180971684e-05, 366434: 0.0, 366436: 0.0}), 'MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366406: 0.008288945036943, 366409: 0.008213634413518998}), 'PixelPhase1 L1T Tracking MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366413: 0.007116476885103999, 366419: 0.007535054022006, 366422: 0.007102542435673999, 366424: 0.007103813607419, 366426: 0.007623475967945001, 366438: 0.008170828107303001, 366439: 0.009400606951683, 366440: 0.007686763462647, 366441: 0.007270513196047999}), 'PixelPhase1 HCAL L1T Tracking MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366413: 0.0, 366441: 0.000149475149086}), 'L1T Tracking MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366433: 2.310397e-08, 366470: 0.0}), 'JetMET EGamma ': defaultdict(<class 'float'>, {366442: 0.13617328368444104, 366449: 0.24778478791732392, 366451: 0.5152701120413158, 366469: 8.668024016144248}), 'SiStrip Tracking JetMET EGamma ': defaultdict(<class 'float'>, {366442: 0.000138022556343}), 'PixelPhase1 SiStrip Tracking JetMET EGamma ': defaultdict(<class 'float'>, {366442: 0.00152415132514, 366471: 1.0682495048874285, 366494: 0.005148903526664}), 'PixelPhase1 SiStrip JetMET EGamma ': defaultdict(<class 'float'>, {366449: 0.000639538216654, 366451: 0.000803448285942, 366469: 0.0057735601419679995}), 'PixelPhase1 JetMET EGamma ': defaultdict(<class 'float'>, {366449: 5.544934548e-05, 366469: 0.0023480612068579997}), 'PixelPhase1 Tracking JetMET EGamma ': defaultdict(<class 'float'>, {366450: 0.22147038309003692, 366451: 0.6197635674943263}), 'PixelPhase1 HCAL Tracking JetMET EGamma ': defaultdict(<class 'float'>, {366450: 0.0}), 'SiStrip JetMET EGamma ': defaultdict(<class 'float'>, {366451: 0.000324865590574, 366469: 0.00204419174361}), 'L1T JetMET EGamma ': defaultdict(<class 'float'>, {366469: 0.049211290325485005}), 'SiStrip L1T Tracking MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366470: 6.9343078672e-05, 366496: 0.3997462556580819}), 'PixelPhase1 JetMET ': defaultdict(<class 'float'>, {366494: 0.001533421602377, 366504: 0.002823928849168, 366533: 0.004055542438346}), 'L1T JetMET ': defaultdict(<class 'float'>, {366494: 0.39528980546221004, 366498: 0.0005361352372400001}), 'JetMET ': defaultdict(<class 'float'>, {366494: 0.323064269470015, 366497: 3.066891663055525, 366498: 0.6029562446348029, 366499: 3.3138043265632344, 366500: 0.4007560948031498, 366504: 13.964046682365009, 366533: 1.068895637836294}), 'SiStrip Tracking MuonPOG JetMET EGamma ': defaultdict(<class 'float'>, {366495: 3.590587604956146}), 'HCAL JetMET ': defaultdict(<class 'float'>, {366499: 0.0}), 'SiStrip JetMET ': defaultdict(<class 'float'>, {366500: 0.0031970675199299997, 366504: 0.004461133676387}), 'PixelPhase1 SiStrip Tracking JetMET ': defaultdict(<class 'float'>, {366500: 0.019541702315951}), 'PixelPhase1 SiStrip JetMET ': defaultdict(<class 'float'>, {366504: 0.010523452597304, 366533: 0.006858743575885}), 'HCAL ': defaultdict(<class 'float'>, {366727: 0.039031169838194, 366801: 0.0, 366873: 51.45845814733859, 366874: 86.24301528873268, 366876: 31.99204676923722, 366891: 33.01650901798462, 366895: 212.30096349171862}), 'SiStrip ': defaultdict(<class 'float'>, {366804: 0.019315381458707002, 366821: 0.022856752681921, 366833: 0.049396240144490004}), 'PixelPhase1 SiStrip ': defaultdict(<class 'float'>, {366804: 0.177043737512077, 366829: 0.03192371330381, 366850: 0.039518246235505004, 366933: 0.112000029696202}), 'PixelPhase1 SiStrip Tracking ': defaultdict(<class 'float'>, {366820: 0.07666574894370001, 366821: 0.169681257558196, 366833: 0.254244741571243, 366838: 0.047495868510218, 367062: 0.07651959502116999, 367065: 0.240922358604231}), 'SiStrip Tracking ': defaultdict(<class 'float'>, {366833: 0.033950786015489, 367065: 0.099114553667817}), 'PixelPhase1 ': defaultdict(<class 'float'>, {366838: 0.00714503700684, 366933: 0.037352544320776004, 367070: 0.085888915096047}), 'EGamma ': defaultdict(<class 'float'>, {366839: 0.23761337486851097}), 'L1T EGamma ': defaultdict(<class 'float'>, {366839: 0.112225834219691}), 'L1T ': defaultdict(<class 'float'>, {366840: 0.0, 367062: 0.000352524366072, 367071: 4.994981284682801, 367072: 12.259030296802285}), 'HCAL L1T ': defaultdict(<class 'float'>, {366840: 0.0}), 'PixelPhase1 SiStrip HCAL Tracking ': defaultdict(<class 'float'>, {366873: 0.08927866835012001, 366876: 0.370967201760189, 366891: 0.092808549690337, 366895: 0.0}), 'PixelPhase1 HCAL ': defaultdict(<class 'float'>, {366873: 0.052452103785823, 366891: 0.045082627101608}), 'SiStrip HCAL ': defaultdict(<class 'float'>, {366895: 0.029459363012119}), 'PixelPhase1 SiStrip L1T Tracking ': defaultdict(<class 'float'>, {367079: 0.109958553254145}), 'PixelPhase1 L1T ': defaultdict(<class 'float'>, {367079: 0.028546212195209}), 'SiStrip L1T ': defaultdict(<class 'float'>, {367079: 0.030429723142989})})
-eraB_output/textFiles_eraB/JetMET_EGamma_loss_eraB.txt
-eraB_output/textFiles_eraB/L1T_loss_eraB.txt
-eraB_output/textFiles_eraB/JetMET_loss_eraB.txt
-eraB_output/textFiles_eraB/HCAL_loss_eraB.txt
-
-
-The text files that include loss info are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/eraB_output/textFiles_eraB
+['Mixed', 'JetMET ', 'L1T ', 'HCAL ']
+The png files are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/eraB_new/figures_eraB
