@@ -1,0 +1,97 @@
+
+
+The period to process lumiloss plots is eraC
+We will run step plot
+The output csv/JSON files are in the directory eraC_output
+The input run file is 2023_Era/eraC_runs.txt
+The dataset in offline RR is /PromptReco/Collisions2023/DQM
+The class in offline RR is Collisions23
+
+
+
+
+Steps include: all        --> running all steps (inputcsv, json, outputcsv, plot, dump)
+The following options are only one step per job
+               inputcsv   --> producing csv files for the input runs using brilcalc
+               json       --> producing muon and golden JSON files
+                              Note, only golden JSON files are required for the next step
+                              If you lose connection to the DB after producing golden JSON file, you can move on to the next step
+               outputcsv  --> producing run registry info for the input runs
+               plot       --> make luminosity loss plots
+               dump       --> dump the major lumi loss into text files
+
+
+The following options run the job from step xx to the last step
+               json_all       --> running json, outputcsv, plot, dump
+               outputcsv_all  --> running outputcsv, plot, dump
+               plot_all       --> running plot, dump
+
+
+Computing luminosity loss without requiring HLT path
+The directory /afs/cern.ch/user/s/syu/scripts/runregistry/eraC_output exists.
+The run list is 2023_Era/eraC_runs.txt
+Python 3.6.12
+Using base prefix '/opt/rh/rh-python36/root/usr'
+New python executable in /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3
+Not overwriting existing python script /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python (you must use /afs/cern.ch/user/s/syu/scripts/runregistry/venv/bin/python3)
+Installing setuptools, pip, wheel...done.
+Running virtualenv with interpreter /opt/rh/rh-python36/root/usr/bin/python3
+/afs/cern.ch/user/s/syu/scripts/runregistry
+Requirement already satisfied: runregistry in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: cernrequests in ./venv/lib/python3.6/site-packages (from runregistry)
+Requirement already satisfied: requests in ./venv/lib/python3.6/site-packages (from runregistry)
+Requirement already satisfied: future in ./venv/lib/python3.6/site-packages (from cernrequests->runregistry)
+Requirement already satisfied: charset-normalizer~=2.0.0; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: idna<4,>=2.5; python_version >= "3" in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.6/site-packages (from requests->runregistry)
+You are using pip version 9.0.1, however version 23.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied: matplotlib in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: pillow>=6.2.0 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: numpy>=1.15 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: python-dateutil>=2.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: kiwisolver>=1.0.1 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.3 in ./venv/lib/python3.6/site-packages (from matplotlib)
+Requirement already satisfied: six>=1.5 in ./venv/lib/python3.6/site-packages (from python-dateutil>=2.1->matplotlib)
+You are using pip version 9.0.1, however version 23.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+creating a new directory eraC_output/figures_eraC
+
+
+Now we are going to produce lumiloss plots in eraC
+using the input from eraC_output/output_eraC.csv
+make_dc_plot_sub.py:279: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  axes = plt.figure(icount)
+['make_dc_plot_sub.py', '-c', 'eraC_output/output_eraC.csv', '-p', 'eraC', '-d', 'eraC_output/figures_eraC']
+Total recorded luminosity for these runs is:  10059.744398393545 /pb
+Total recorded luminosity loss for these runs is:  167.03449148751383 /pb
+{'ecal-ecal': 0.0033618439576320004, 'ecal-es': 0.0033618439576320004, 'csc-csc': 0.0033618439576320004, 'dt-dt': 0.0033618439576320004, 'hcal-hcal': 7.979497357182213, 'tracker-pixel': 32.70309357285628, 'muon-muon': 38.66036554531658, 'egamma-egamma': 39.346355536024596, 'jetmet-jetmet': 39.91452503304281, 'hlt-hlt': 47.06688444920183, 'tracker-track': 58.18150057830189, 'tracker-strip': 71.15777217876168, 'l1t-l1tmu': 83.67156512523597, 'l1t-l1tcalo': 86.94976990271427}
+{'ho_ready': 0.988782552842992, 'hbhec_ready': 13.714375563012213, 'bpix_ready': 33.135170252157764, 'fpix_ready': 34.84582886870963, 'tecm_ready': 57.47169778238013, 'tob_ready': 58.76388786617679, 'tecp_ready': 59.09283328599018, 'tibtid_ready': 73.3550906658041}
+{'ECAL': 0.0033618439576320004, 'ES': 0.0033618439576320004, 'CSC': 0.0033618439576320004, 'DT': 0.0033618439576320004, 'HCAL': 22.682655473037414, 'PixelPhase1': 35.11040489177378, 'MuonPOG': 38.66036554531658, 'EGamma': 39.346355536024596, 'JetMET': 39.91452503304281, 'HLT': 47.06688444920183, 'Tracking': 58.18150057830189, 'SiStrip': 74.47825622638547, 'L1T': 87.16414778534921}
+{'SiStrip L1T Tracking MuonPOG JetMET EGamma ': 0.002455058079012, 'PixelPhase1 SiStrip L1T Tracking MuonPOG JetMET EGamma ': 0.002720483768155, 'PixelPhase1 SiStrip ECAL ES HCAL CSC DT L1T HLT Tracking MuonPOG JetMET EGamma ': 0.0033618439576320004, 'L1T Tracking MuonPOG JetMET EGamma ': 0.019942844458703, 'HCAL L1T MuonPOG JetMET EGamma ': 0.028411516919233003, 'SiStrip Tracking EGamma ': 0.056644601013959996, 'L1T MuonPOG JetMET EGamma ': 0.100763046660537, 'MuonPOG JetMET EGamma ': 0.103965401936982, 'HCAL L1T ': 0.244212052670282, 'PixelPhase1 L1T Tracking ': 0.250009338523173, 'Tracking ': 0.25187634777046003, 'JetMET ': 0.344839711337746, 'PixelPhase1 L1T ': 0.438279708073326, 'SiStrip ': 0.45239447337311, 'HCAL L1T HLT ': 0.456822432780499, 'PixelPhase1 Tracking ': 0.470761677238297, 'SiStrip Tracking ': 0.588012341032045, 'PixelPhase1 SiStrip Tracking EGamma ': 0.62934538969406, 'SiStrip L1T Tracking ': 0.786756285434237, 'PixelPhase1 ': 0.8773147693068931, 'HCAL L1T JetMET ': 0.9093197763884779, 'SiStrip L1T ': 1.119208719284709, 'PixelPhase1 SiStrip L1T ': 3.39382371237993, 'PixelPhase1 SiStrip Tracking ': 4.332761724297218, 'PixelPhase1 SiStrip ': 12.323536508171289, 'PixelPhase1 SiStrip L1T Tracking ': 12.38848973636379, 'L1T ': 20.412488614278722, 'HCAL ': 21.040527850321286, 'SiStrip Tracking MuonPOG JetMET EGamma ': 38.398362906671146, 'L1T HLT ': 46.6067001724637}
+{'Tracking ': 0.25187634777046003, 'JetMET ': 0.344839711337746, 'SiStrip ': 0.45239447337311, 'PixelPhase1 ': 0.8773147693068931, 'L1T ': 20.412488614278722, 'HCAL ': 21.040527850321286, 'Mixed': 123.65504972112564}
+{'L1T ': 0.12220523098251594, 'HCAL ': 0.12596516840890978, 'Mixed': 0.7402965017579564}
+{'PixelPhase1 SiStrip L1T ': 2.0318101262538493, 'PixelPhase1 SiStrip Tracking ': 2.593932358348336, 'PixelPhase1 SiStrip ': 7.3778393901911565, 'PixelPhase1 SiStrip L1T Tracking ': 7.4167255074320115, 'L1T ': 12.220523098251595, 'HCAL ': 12.596516840890978, 'SiStrip Tracking MuonPOG JetMET EGamma ': 22.98828377583411, 'L1T HLT ': 27.902440841655533}
+{'tracker-pixel': 32.70309357285628, 'bpix_ready': 33.135170252157764, 'fpix_ready': 34.84582886870963}
+{'tecm_ready': 57.47169778238013, 'tob_ready': 58.76388786617679, 'tecp_ready': 59.09283328599018, 'tracker-strip': 71.15777217876168, 'tibtid_ready': 73.3550906658041}
+{'ecal-ecal': 0.0033618439576320004}
+{'ecal-es': 0.0033618439576320004}
+{'hbhea_ready': 0.0, 'hbheb_ready': 0.0, 'hf_ready': 0.0, 'ho_ready': 0.988782552842992, 'hcal-hcal': 7.979497357182213, 'hbhec_ready': 13.714375563012213}
+{'csc-csc': 0.0033618439576320004}
+{'dt-dt': 0.0033618439576320004}
+{'l1t-l1tmu': 83.67156512523597, 'l1t-l1tcalo': 86.94976990271427}
+{'hlt-hlt': 47.06688444920183}
+{'tracker-track': 58.18150057830189}
+{'muon-muon': 38.66036554531658}
+{'jetmet-jetmet': 39.91452503304281}
+{'egamma-egamma': 39.346355536024596}
+{'tracker-pixel': 0.0034217754321070005, 'bpix_ready': 0.261154247632032, 'fpix_ready': 1.971812864183891, 'Mixed': 32.874016004525735}
+{'tob_ready': 0.0, 'tracker-strip': 0.0034217754321070005, 'tecm_ready': 0.21891726057299, 'tibtid_ready': 0.387902086895208, 'tecp_ready': 0.604132266911194, 'Mixed': 73.26388283657398}
+{'hbhea_ready': 0.0, 'hbheb_ready': 0.0, 'hf_ready': 0.0, 'Mixed': 0.0, 'ho_ready': 0.988782552842992, 'hcal-hcal': 7.979497357182213, 'hbhec_ready': 13.714375563012213}
+{'l1t-l1tmu': 0.21437788263494398, 'l1t-l1tcalo': 3.492582660113239, 'Mixed': 83.45718724260102}
+defaultdict(<class 'str'>, {'Mixed': 'brown', 'PixelPhase1 ': 'purple', 'SiStrip ': 'plum', 'ECAL ': 'red', 'ES ': 'pink', 'HCAL ': 'green', 'CSC ': 'orange', 'DT ': 'yellow', 'L1T ': 'blue', 'HLT ': 'pink', 'Tracking ': 'orchid', 'MuonPOG ': 'goldenrod', 'JetMET ': 'gray', 'EGamma ': 'olive'})
+['L1T ', 'HCAL ', 'Mixed']
+The png files are in the directory /afs/cern.ch/user/s/syu/scripts/runregistry/eraC_output/figures_eraC
+The script produce_lumilossplots.sh has produced luminosity loss plots and will stop now
